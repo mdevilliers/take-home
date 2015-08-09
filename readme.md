@@ -36,7 +36,11 @@ Testing via curl
 ----------------
 
 curl -I -X POST localhost:8000/topic1/user1
+
 curl -X POST --data "message1" localhost:8000/topic1
+
 curl -X POST --data "message2" localhost:8000/topic1
+
 curl -v localhost:8000/topic1/user1
+
 curl -I -X DELETE localhost:8000/topic1/user1
