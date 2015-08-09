@@ -1,17 +1,12 @@
 #!/bin/bash
 # The script does automatic checking on a Go package and its sub-packages, including:
-# 1. gofmt (http://golang.org/cmd/gofmt/)
-# 2. goimports (http://golang.org/cmd/goimports/)
-# 3. go vet (http://golang.org/cmd/vet)
-# 4. race detector (http://blog.golang.org/race-detector)
-# 5. test coverage (http://blog.golang.org/cover)
-# 6. build the main entry points
+# 1. go vet (http://golang.org/cmd/vet)
+# 2. race detector (http://blog.golang.org/race-detector)
+# 3. test coverage (http://blog.golang.org/cover)
+# 4. build the main entry points
 
 set -e
 
-# Automatic checks
-test -z "$(gofmt -l -w .     | tee /dev/stderr)"
-test -z "$(goimports -w .    | tee /dev/stderr)"
 go vet ./...
 go test -race ./...
 

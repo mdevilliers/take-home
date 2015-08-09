@@ -5,12 +5,14 @@ Build
 Download the code
 
 ```
-go get golang.org/x/tools/cmd/goimports
 go get github.com/zenazn/goji/web
 go get github.com/mdevilliers/take-home
+
 ```
 
-Run the ci script - remember and set the execute flag on linux
+Change directory to GOPATH/srcgithub.com/mdevilliers/take-home
+
+Run the ci script - remember and set the execute flag if on linux
 
 ```
 build\ci.sh
@@ -25,11 +27,10 @@ go tool cover -html=profile.cov
 Run the app 
 
 ```
-go build github.com/mdevilliers/take-home/cmd/server/ 
 .\server
 ```
 
-The rest server should be available from http://localost:8080
+The rest server should be available from http://localhost:8080
 
 
 Testing via curl
