@@ -12,7 +12,7 @@ go get github.com/mdevilliers/take-home
 
 Change directory to GOPATH/srcgithub.com/mdevilliers/take-home
 
-Run the ci script - remember and set the execute flag if on linux
+Run the ci script - remember to set the execute flag if on linux
 
 ```
 build\ci.sh
