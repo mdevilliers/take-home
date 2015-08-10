@@ -30,7 +30,7 @@ Run the app
 .\server
 ```
 
-The rest server should be available from http://localhost:8080
+The rest server should be available from http://localhost:8000
 
 
 Testing via curl
