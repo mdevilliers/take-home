@@ -50,7 +50,7 @@ func (api *Api) SubscribeToTopic(c web.C, w http.ResponseWriter, r *http.Request
 		w.WriteHeader(200)
 
 	} else {
-		
+
 		w.WriteHeader(500)
 		log.Print("SubscribeToTopic : unexpected error : ", err.Error())
 	}
@@ -116,17 +116,9 @@ func (api *Api) PublishMessage(c web.C, w http.ResponseWriter, r *http.Request) 
 
 	if err != nil {
 
-		if err == UnknownTopic {
-			w.WriteHeader(404)
-
-		} else {
-
-			// unexpected error
-			log.Print("PublishMessage : unexpected error : ", err.Error())
-			w.WriteHeader(500)
-
-		}
-
+		// unexpected error
+		log.Print("PublishMessage : unexpected error : ", err.Error())
+		w.WriteHeader(500)
 		return
 
 	} else {

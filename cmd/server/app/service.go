@@ -189,13 +189,6 @@ func (s *Service) loop() {
 
 			log.Print("Message recieved on publishMessageChannel")
 
-			exists := s.registry.Contains(publishMessage.topic)
-
-			if !exists {
-				publishMessage.responseChannel <- &response{err: UnknownTopic}
-				break
-			}
-
 			topicToPostTo := s.registry.Get(publishMessage.topic)
 			topicToPostTo.PublishMessage(topic.NewMessage(publishMessage.message))
 

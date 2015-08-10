@@ -16,11 +16,7 @@ import (
 // ● 200: Subscription succeeded.
 func TestSubscribeToTopicReturns200(t *testing.T) {
 
-	api := NewApi()
-	mux := web.New()
-	api.Route(mux)
-
-	instance := httptest.NewServer(mux)
+	instance := getServerInstance()
 	defer instance.Close()
 
 	//POST /<topic>/<username>
@@ -100,8 +96,7 @@ func TestPublishToExistingTopicReturns200(t *testing.T) {
 
 }
 
-// WARNING : this is not in the spec but I believe it is arguably correct
-func TestPublishToNonExistingTopicReturns404(t *testing.T) {
+func TestPublishToNonExistingTopicReturns200(t *testing.T) {
 
 	instance := getServerInstance()
 	defer instance.Close()
@@ -110,8 +105,9 @@ func TestPublishToNonExistingTopicReturns404(t *testing.T) {
 	res, _ := http.Post(instance.URL+"/topic-one", "text", bytes.NewBuffer([]byte("message-one")))
 
 	_, status := parseResponse(res)
-	if status != 404 {
-		t.Error("Posting to an non-existing topic should return 404 but returned ", status)
+
+	if status != 200 {
+		t.Error("Posting to an non-existing topic should return 200 but returned ", status)
 	}
 
 }

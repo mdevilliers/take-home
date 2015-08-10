@@ -34,16 +34,16 @@ func TestPath1(t *testing.T) {
 }
 
 // Path 2
-// 'message-one' published to 'topic-one'
-// expects this to error with unknown subscription
+// 'message-one' published to 'topic-one' which does not exist
+// expects no error to be thrown
 func TestPath2(t *testing.T) {
 
 	service := NewService()
 
 	err := service.PublishMessage("topic-one", []byte("message-one"))
 
-	if err != UnknownTopic {
-		t.Error("PublishMessage should have errored with UnknownTopic :", err.Error())
+	if err != nil {
+		t.Error("PublishMessage should have not have errored :", err.Error())
 	}
 
 }
