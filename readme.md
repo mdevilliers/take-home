@@ -10,7 +10,7 @@ go get github.com/mdevilliers/take-home
 
 ```
 
-Change directory to GOPATH/srcgithub.com/mdevilliers/take-home
+Change directory to GOPATH/src/github.com/mdevilliers/take-home
 
 Run the ci script - remember to set the execute flag if on linux
 
